@@ -1,0 +1,18 @@
+Deploy: version 1
+on: push
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v3
+
+    - name: Run Ansible playbook
+      uses: dawidd6/action-ansible-playbook@v2.5.0
+      with:
+        playbook: v1-playbook.yml # path to your Ansible playbook
+        directory: ./
+        inventory: ${{ secrets.ansible_inventory }} # the ansible inventory to use, stored as "ansible_inventory" in the GitHub secrets
