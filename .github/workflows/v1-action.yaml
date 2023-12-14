@@ -13,6 +13,6 @@ jobs:
     - name: Run Ansible playbook
       uses: dawidd6/action-ansible-playbook@v2.5.0
       with:
-        playbook: abhishek/v1-playbook.yml # path to your Ansible playbook
+        playbook: chndel-abhishek/GH/abhishek/v1-playbook.yml # path to your Ansible playbook
         directory: ./
         inventory: ${{ secrets.ansible_inventory }} # the ansible inventory to use, stored as "ansible_inventory" in the GitHub secrets
