@@ -1,8 +1,5 @@
 name: version 1
-on: 
-  push:
-    branches:
-      - 'origin/v1'
+on: push
 jobs:
 
   build:
