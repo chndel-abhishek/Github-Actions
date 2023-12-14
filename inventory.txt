@@ -1,0 +1,4 @@
+[all]
+
+server1  ansible_host=44.221.41.145 ansible_ssh_private_key_file=/home/jenkins/agent/workspace/Build_task1_abhishek/key.pem
+server2  ansible_host=54.237.79.99  ansible_ssh_private_key_file=/home/jenkins/agent/workspace/Build_task1_abhishek/key.pem

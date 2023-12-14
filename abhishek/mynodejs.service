@@ -1,0 +1,19 @@
+[Unit]
+Description=My Nodejs Server
+
+[Service]
+# Start Service and Examples
+ExecStart=/usr/bin/node /home/ubuntu/V1/package/app.js
+RestartSec=10
+Restart=always
+
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nodejs-server
+
+# Variables
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
