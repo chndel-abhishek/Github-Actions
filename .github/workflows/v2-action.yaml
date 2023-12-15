@@ -1,0 +1,35 @@
+name: version 2
+on: workflow_dispatch
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v3
+    - name: install Artificats
+      run: |
+        curl -u admin:admin -o sample-app-2.0.0.tgz "http://35.197.54.84:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
+    - name: Print workspace
+      run: |
+            ls ${{ github.workspace }}
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: install pip
+      run: |
+        python -m pip install --upgrade pip
+        pip install ansible
+    - name: perimission to RSA
+      run: |
+        chmod 400 /home/runner/work/GH/GH/key.pem
+    - name: ping ansible
+      run: |
+        ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
+    - name: ansible deploy v1
+      run: |
+        ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
