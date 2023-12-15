@@ -12,6 +12,9 @@ jobs:
     needs: build-Artifacts
     runs-on: ubuntu-latest
     steps:
+      - name: print workspace
+        run: |
+          ls ${{ github.workspace }}
       - name: Send Artificats
         run: |
              cd /home/runner/work/GH/GH/NodeApp/
