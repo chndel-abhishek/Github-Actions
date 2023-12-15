@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v3
     - name: install Artificats
       run: |
-        curl -u xs345-abhcha:Abhishek@2903! -o nodejs-applicationv1-1.0.0.tgz "https://nexus.neuralcompany.team/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.0.tgz"
+        curl -u admin:admin -o sample-app-1.0.0.tgz "http://35.197.54.84:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
     - name: Print workspace
       run: |
             ls ${{ github.workspace }}
