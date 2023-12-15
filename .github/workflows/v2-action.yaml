@@ -1,5 +1,5 @@
 name: version 2
-on: workflow_dispatch
+on: push
 jobs:
 
   build:
