@@ -9,6 +9,9 @@ jobs:
     steps:
     - name: Checkout 
       uses: actions/checkout@v3
+    - name: install Artificats
+      run: |
+        curl -u xs345-abhcha:Abhishek@2903! -o nodejs-applicationv1-1.0.0.tgz "https://nexus.neuralcompany.team/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.0.tgz"
     - name: Print workspace
       run: |
             ls ${{ github.workspace }}
@@ -27,3 +30,6 @@ jobs:
     - name: ping ansible
       run: |
         ansible server1 -i /home/runner/work/GH/GH/inventory.txt -m ping
+    # - name: ansible deploy v1
+    #   run: |
+    #     ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
