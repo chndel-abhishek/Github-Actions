@@ -1,0 +1,2 @@
+server1  ansible_host=34.125.91.52 ansible_user=abhishekchandel1411 ansible_ssh_pass=abhishek
+server2  ansible_host=34.125.195.143 ansible_user=abhishekchandel1411 ansible_ssh_pass=abhishek
