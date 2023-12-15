@@ -1,11 +1,23 @@
 name: version 2
 on: push
 jobs:
-
-  build:
-
+  build-Artifacts:
     runs-on: ubuntu-latest
-
+    steps:
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+  Push-Artifacts:
+    needs: build-Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Artificats
+        run: |
+          cd /home/runner/work/GH/GH/NodeApp/ && npm publish   
+  deploy:
+    needs: Push-Artifacts
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout 
       uses: actions/checkout@v3
