@@ -10,13 +10,13 @@
         mode: '0755'
     - name: Copy V1 Artificats to Node 1
       ansible.builtin.copy:
-        src: /home/runner/work/GH/GH/sample-app-1.0.0.tgz
+        src: /home/runner/work/GH/GH/nodejs-applicationv1.tgz
         dest: /home/abhishekchandel1411/V1
         mode: '0644'
         follow: yes 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /home/abhishekchandel1411/V1/sample-app-1.0.0.tgz
+        src: /home/abhishekchandel1411/V1/nodejs-applicationv1.tgz
         dest: /home/abhishekchandel1411/V1
         remote_src: yes
       become: yes
