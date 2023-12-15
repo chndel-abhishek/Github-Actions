@@ -41,12 +41,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install ansible
+        
     - name: perimission to RSA
       run: |
         chmod 400 /home/runner/work/GH/GH/key.pem
+
     - name: ping ansible
       run: |
         ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
+
     - name: ansible deploy v2
       run: |
         ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
