@@ -1,6 +1,6 @@
 {
   "name": "nodejs-applicationv1",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is v1 running",
   "main": "app.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "https://github.com/chndel-abhishek/GH.git"
   },
   "publishConfig": {
-    "registry":"http://35.197.54.84:8081/repository/npm-hosted/"
+    "registry":"http://34.127.47.190:8081/repository/npm-hosted/"
   },
   "author": "Abhishek",
   "license": "ISC"

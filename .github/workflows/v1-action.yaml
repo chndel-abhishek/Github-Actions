@@ -29,7 +29,7 @@ jobs:
       uses: actions/checkout@v3
     - name: install Artificats
       run: |
-        curl -u admin:admin -o nodejs-applicationv1.tgz "http://34.127.47.190:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.3.tgz"
+        curl -u ${{ secrets.NEXUS_USER }}:${{ secrets.NEXUS_PASS }} -o nodejs-applicationv1.tgz "http://34.127.47.190:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.4.tgz"
     - name: Print workspace
       run: |
             ls ${{ github.workspace }}
