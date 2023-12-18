@@ -22,7 +22,7 @@ jobs:
   #            cd /home/runner/work/GH/GH/NodeApp/
   #            npm publish   
   deploy:
-    needs: Push-Artifacts
+    # needs: Push-Artifacts
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 
