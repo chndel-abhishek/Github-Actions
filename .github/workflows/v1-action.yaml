@@ -8,19 +8,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16
-  Push-Artifacts:
-    needs: build-Artifacts
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 
-        uses: actions/checkout@v3
-      - name: print workspace
-        run: |
-          ls ${{ github.workspace }}
-      - name: Send Artificats
-        run: |
-             cd /home/runner/work/GH/GH/NodeApp/
-             npm publish   
+  # Push-Artifacts:
+  #   needs: build-Artifacts
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout 
+  #       uses: actions/checkout@v3
+  #     - name: print workspace
+  #       run: |
+  #         ls ${{ github.workspace }}
+  #     - name: Send Artificats
+  #       run: |
+  #            cd /home/runner/work/GH/GH/NodeApp/
+  #            npm publish   
   deploy:
     needs: Push-Artifacts
     runs-on: ubuntu-latest
@@ -29,27 +29,27 @@ jobs:
       uses: actions/checkout@v3
     - name: install Artificats
       run: |
-        curl -u admin:admin -o nodejs-applicationv1.tgz "http://35.197.54.84:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.3.tgz"
+        curl -u admin:admin -o nodejs-applicationv1.tgz "http://34.127.47.190:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.3.tgz"
     - name: Print workspace
       run: |
             ls ${{ github.workspace }}
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: install pip
-      run: |
-        python -m pip install --upgrade pip
-        pip install ansible
+  #   - name: Set up Python
+  #     uses: actions/setup-python@v2
+  #     with:
+  #       python-version: '3.x'
+  #   - name: install pip
+  #     run: |
+  #       python -m pip install --upgrade pip
+  #       pip install ansible
         
-    - name: perimission to RSA
-      run: |
-        chmod 400 /home/runner/work/GH/GH/key.pem
+  #   - name: perimission to RSA
+  #     run: |
+  #       chmod 400 /home/runner/work/GH/GH/key.pem
 
-    - name: ping ansible
-      run: |
-        ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
+  #   - name: ping ansible
+  #     run: |
+  #       ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
 
-    - name: ansible deploy v2
-      run: |
-        ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
+  #   - name: ansible deploy v2
+  #     run: |
+  #       ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
