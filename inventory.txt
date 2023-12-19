@@ -1,4 +1,4 @@
 [all]
 
 
-server2  ansible_host=34.238.165.79
+server2  ansible_host=34.238.165.79 
