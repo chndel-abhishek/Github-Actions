@@ -26,10 +26,10 @@ jobs:
         pip install ansible
     - name: perimission to RSA
       run: |
-        chmod 400 /home/runner/work/GH/GH/key.pem
+        chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
     - name: ping ansible
       run: |
-        ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
+        ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping
     - name: ansible deploy v1
       run: |
-        ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml --private-key=${{ secrets.SECRET_FILE }}
+        ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v1-playbook.yaml --private-key=${{ secrets.SECRET_FILE }}

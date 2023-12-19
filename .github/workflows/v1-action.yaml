@@ -19,7 +19,7 @@
 #   #         ls ${{ github.workspace }}
 #   #     - name: Send Artificats
 #   #       run: |
-#   #            cd /home/runner/work/GH/GH/NodeApp/
+#   #            cd /home/runner/work/Github-Actions/Github-Actions/NodeApp/
 #   #            npm publish   
 #   deploy:
 #     # needs: Push-Artifacts
@@ -44,12 +44,12 @@
         
 #   #   - name: perimission to RSA
 #   #     run: |
-#   #       chmod 400 /home/runner/work/GH/GH/key.pem
+#   #       chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
 
 #   #   - name: ping ansible
 #   #     run: |
-#   #       ansible all -i /home/runner/work/GH/GH/inventory.txt -m ping
+#   #       ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping
 
 #   #   - name: ansible deploy v2
 #   #     run: |
-#   #       ansible-playbook -i /home/runner/work/GH/GH/inventory.txt /home/runner/work/GH/GH/abhishek/v1-playbook.yaml
+#   #       ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v1-playbook.yaml
