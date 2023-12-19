@@ -3,7 +3,7 @@ Description=My Nodejs Server
 
 [Service]
 # Start Service and Examples
-ExecStart=/usr/bin/node /home/abhishekchandel1411/V1/package/app.js
+ExecStart=/usr/bin/node /home/ubuntu/V2/package/app.js
 RestartSec=10
 Restart=always
 

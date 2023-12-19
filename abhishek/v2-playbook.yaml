@@ -5,19 +5,19 @@
   tasks:
     - name: make a directory
       ansible.builtin.file:
-        path: /home/ubuntu/V1
+        path: /home/ubuntu/V2
         state: directory
         mode: '0755'
     - name: Copy V1 Artificats to Node 1
       ansible.builtin.copy:
         src: /home/runner/work/Github-Actions/Github-Actions/sample-app-2.0.0.tgz
-        dest: /home/ubuntu/V1
+        dest: /home/ubuntu/V2
         mode: '0644'
         follow: yes 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /home/ubuntu/V1/sample-app-2.0.0.tgz
-        dest: /home/ubuntu/V1
+        src: /home/ubuntu/V2/sample-app-2.0.0.tgz
+        dest: /home/ubuntu/V2
         remote_src: yes
       become: yes
     - name: "Install nodejs"

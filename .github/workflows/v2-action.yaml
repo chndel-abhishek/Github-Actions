@@ -30,6 +30,6 @@ jobs:
     - name: ping ansible
       run: |
         ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping 
-    - name: ansible deploy v1
+    - name: ansible deploy v2
       run: |
         ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v2-playbook.yaml 
