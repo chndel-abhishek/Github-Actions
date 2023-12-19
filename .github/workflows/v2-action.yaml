@@ -29,7 +29,7 @@ jobs:
         chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
     - name: ping ansible
       run: |
-        ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping
+        ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping --private-key=${{ secrets.SECRET_FILE }}
     - name: ansible deploy v1
       run: |
         ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v1-playbook.yaml --private-key=${{ secrets.SECRET_FILE }}
