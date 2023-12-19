@@ -1,4 +1,4 @@
 [all]
 
-
+server1  ansible_host=18.206.215.128 ansible_ssh_private_key_file=/home/runner/work/Github-Actions/Github-Actions/key.pem
 server2  ansible_host=34.238.165.79 ansible_ssh_private_key_file=/home/runner/work/Github-Actions/Github-Actions/key.pem

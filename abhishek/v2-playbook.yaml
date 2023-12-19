@@ -1,6 +1,6 @@
 ---
 - name: Clone and Deploy Node.js App
-  hosts: server2
+  hosts: all
   become: yes
   tasks:
     - name: make a directory
