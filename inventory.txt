@@ -1,4 +1,4 @@
 [all]
 
 
-server2  ansible_host=34.125.195.143 ansible_user=abhishekchandel1411 ansible_ssh_pass=abhishek
+server2  ansible_host=34.238.165.79
