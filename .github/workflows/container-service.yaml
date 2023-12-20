@@ -28,8 +28,6 @@ jobs:
               with:
                 path: ~/.npm
                 key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/package-lock.json') }}
-            - name: test dependencies
-              run: npm ci
             - name: start server
               run: npm start & npx wait-on http://127.0.0.1:$PORT
             - name: Run npm tests
