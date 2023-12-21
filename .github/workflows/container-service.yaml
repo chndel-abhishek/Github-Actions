@@ -1,36 +1,36 @@
-name: Service Container
-on: push
-env:
-    CACHE_KEY: node-deps
-jobs:
-    test:
-        environment: testing
-        runs-on: ubuntu-latest
-        container:
-            image: node:16
-        env:
-            MONGODB_CONNECTION: mongodb
-            MONGODB_CLUSTER_ADDRESS: mongodb
-            MONGODB_USERNAME: root
-            MONGODB_PASSWORD: root
-            PORT: 8080
-        services:
-            mongodb:
-                image: mongo
-                env:
-                    MONGODB_INITDB_ROOT_USERNAME: root
-                    MONGODB_INITDB_ROOT_PASSWORD: root 
-        steps:
-            - name: get code
-              uses: actions/checkout@v3
-            - name: get caches
-              uses: actions/cache@v3
-              with:
-                path: ~/.npm
-                key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/NodeApp/package-lock.json') }}
-            - name: start server
-              run: npm start & npx wait-on http://127.0.0.1:$PORT
-            - name: Run npm tests
-              run: npm test
+# name: Service Container
+# on: push
+# env:
+#     CACHE_KEY: node-deps
+# jobs:
+#     test:
+#         environment: testing
+#         runs-on: ubuntu-latest
+#         container:
+#             image: node:16
+#         env:
+#             MONGODB_CONNECTION: mongodb
+#             MONGODB_CLUSTER_ADDRESS: mongodb
+#             MONGODB_USERNAME: root
+#             MONGODB_PASSWORD: root
+#             PORT: 8080
+#         services:
+#             mongodb:
+#                 image: mongo
+#                 env:
+#                     MONGODB_INITDB_ROOT_USERNAME: root
+#                     MONGODB_INITDB_ROOT_PASSWORD: root 
+#         steps:
+#             - name: get code
+#               uses: actions/checkout@v3
+#             - name: get caches
+#               uses: actions/cache@v3
+#               with:
+#                 path: ~/.npm
+#                 key: ${{ env.CACHE_KEY }}-${{ hashFiles('**/NodeApp/package-lock.json') }}
+#             - name: start server
+#               run: npm start & npx wait-on http://127.0.0.1:$PORT
+#             - name: Run npm tests
+#               run: npm test
 
          

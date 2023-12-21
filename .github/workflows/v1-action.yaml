@@ -1,55 +1,55 @@
-name: version 1
-on: push
-jobs:
-  build-Artifacts:
-    runs-on: self-hosted
-    steps:
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 16
-  Push-Artifacts:
-    needs: build-Artifacts
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 
-        uses: actions/checkout@v3
-      - name: print workspace
-        run: |
-          ls ${{ github.workspace }}
-      - name: Send Artificats
-        run: |
-             cd /home/runner/work/Github-Actions/Github-Actions/NodeApp/
-             npm publish   
-  deploy:
-    needs: Push-Artifacts
-    runs-on: self-hosted
-    steps:
-    - name: Checkout 
-      uses: actions/checkout@v3
-    - name: install Artificats
-      run: |
-        curl -u ${{ secrets.NEXUS_USER }}:${{ secrets.NEXUS_PASS }} -o nodejs-applicationv1.tgz "http://34.127.47.190:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.2.tgz"
-    - name: Print workspace
-      run: |
-            ls ${{ github.workspace }}
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: install pip
-      run: |
-        python -m pip install --upgrade pip
-        pip install ansible
+# name: version 1
+# on: push
+# jobs:
+#   build-Artifacts:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Install Node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 16
+#   Push-Artifacts:
+#     needs: build-Artifacts
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout 
+#         uses: actions/checkout@v3
+#       - name: print workspace
+#         run: |
+#           ls ${{ github.workspace }}
+#       - name: Send Artificats
+#         run: |
+#              cd /home/runner/work/Github-Actions/Github-Actions/NodeApp/
+#              npm publish   
+#   deploy:
+#     needs: Push-Artifacts
+#     runs-on: self-hosted
+#     steps:
+#     - name: Checkout 
+#       uses: actions/checkout@v3
+#     - name: install Artificats
+#       run: |
+#         curl -u ${{ secrets.NEXUS_USER }}:${{ secrets.NEXUS_PASS }} -o nodejs-applicationv1.tgz "http://34.127.47.190:8081/repository/npm-hosted/nodejs-applicationv1/-/nodejs-applicationv1-1.0.2.tgz"
+#     - name: Print workspace
+#       run: |
+#             ls ${{ github.workspace }}
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: '3.x'
+#     - name: install pip
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install ansible
         
-    - name: perimission to RSA
-      run: |
-        chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
+#     - name: perimission to RSA
+#       run: |
+#         chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
 
-    - name: ping ansible
-      run: |
-        ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping
+#     - name: ping ansible
+#       run: |
+#         ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping
 
-    - name: ansible deploy v2
-      run: |
-        ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v1-playbook.yaml
+#     - name: ansible deploy v2
+#       run: |
+#         ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v1-playbook.yaml
