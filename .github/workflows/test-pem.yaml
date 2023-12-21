@@ -12,5 +12,6 @@ jobs:
          - name: save secret to file
            run: |
              echo $SECRET_FILE > private-key.pem
+             ls
            env:
              SECRET_FILE: ${{ secrets.SECRET_FILE }}
