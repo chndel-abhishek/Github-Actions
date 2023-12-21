@@ -27,6 +27,7 @@ jobs:
     - name: save secret to file
       run: |
           echo $SECRET_FILE > private-key.pem
+          cat private-key.pem
     - name: perimission to RSA
       run: |
         chmod 400 /home/runner/work/Github-Actions/Github-Actions/private-key.pem
