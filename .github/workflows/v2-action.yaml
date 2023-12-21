@@ -30,6 +30,7 @@ jobs:
     - name: perimission to RSA
       run: |
         chmod 400 /home/runner/work/Github-Actions/Github-Actions/private-key.pem
+        ls
     - name: ping ansible
       run: |
         ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping 
