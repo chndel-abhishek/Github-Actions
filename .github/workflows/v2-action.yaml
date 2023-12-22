@@ -30,7 +30,7 @@ jobs:
           cat private-key.pem
     - name: perimission to RSA
       run: |
-        chmod 400 /home/runner/work/Github-Actions/Github-Actions/private-key.pem
+        chmod 400 /home/runner/work/Github-Actions/Github-Actions/key.pem
         ls
     - name: ping ansible
       run: |
