@@ -1,40 +1,40 @@
-# name: version 2
-# on: push
-# jobs:
+name: version 2
+on: push
+jobs:
 
-#   build:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - name: Checkout 
-#       uses: actions/checkout@v3
-#     - name: install Artificats
-#       run: |
-#         curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.127.47.190:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
-#     - name: Print workspace
-#       run: |
-#             ls ${{ github.workspace }}
-#     - name: Set up Python
-#       uses: actions/setup-python@v2
-#       with:
-#         python-version: '3.x'
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v3
+    - name: install Artificats
+      run: |
+        curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.127.47.190:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
+    - name: Print workspace
+      run: |
+            ls ${{ github.workspace }}
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-#     - name: install pip
-#       run: |
-#         python -m pip install --upgrade pip
-#         pip install ansible
-#     - name: save secret to file
-#       run: |
-#           echo $SECRET_FILE > private-key.pem
-#           cat private-key.pem
-#     - name: perimission to RSA
-#       run: |
-#         chmod 400 /home/runner/work/Github-Actions/Github-Actions/private-key.pem
-#         ls
-#     - name: ping ansible
-#       run: |
-#         ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping 
-#     - name: ansible deploy v2
-#       run: |
-#         ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v2-playbook.yaml 
+    - name: install pip
+      run: |
+        python -m pip install --upgrade pip
+        pip install ansible
+    - name: save secret to file
+      run: |
+          echo $SECRET_FILE > private-key.pem
+          cat private-key.pem
+    - name: perimission to RSA
+      run: |
+        chmod 777 /home/runner/work/Github-Actions/Github-Actions/private-key.pem
+        ls
+    - name: ping ansible
+      run: |
+        ansible all -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt -m ping 
+    - name: ansible deploy v2
+      run: |
+        ansible-playbook -i /home/runner/work/Github-Actions/Github-Actions/inventory.txt /home/runner/work/Github-Actions/Github-Actions/abhishek/v2-playbook.yaml 
